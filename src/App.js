@@ -1,13 +1,19 @@
-import styled from "styled-components";
-
-const Check = styled.div`
-    background-color: ${(props) => props.theme.color.primary};
-`;
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home, Product, Cart, Checkout } from "./pages/index";
+import Layout from "./components/layout";
 
 function App() {
     return (
         <div>
-            <Check>Hello</Check>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="product" element={<Product />} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="checkout" element={<Checkout />} />
+                </Route>
+            </Routes>
         </div>
     );
 }

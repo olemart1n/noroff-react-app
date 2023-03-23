@@ -2,9 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     html {
-        --color-primary: blue;
+        --color-primary: rgb(241, 241, 224);
         --color-secondary: #5DCED8;
-        --color-background: rgb(241, 241, 224);
+        --color-background: blue;
         --color-button: #efef92;
         --color-link: grey
     }
