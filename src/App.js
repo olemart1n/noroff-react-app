@@ -9,7 +9,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="product" element={<Product />} />
+                    <Route path="product/:id" element={<Product />} />
                     <Route path="cart" element={<Cart />} />
                     <Route path="checkout" element={<Checkout />} />
                 </Route>

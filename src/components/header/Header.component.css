@@ -1,0 +1,114 @@
+@import url(../../styles);
+
+header {
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.sr_only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+        padding: 0 5px;
+        width: 30%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+.logo {
+    width: 100px;
+    @media (min-width: 450px) {
+        width: 180px;
+    }
+}
+
+.icon_div {
+    display: flex;
+    padding: 4px 4px;
+}
+
+.nav_icons {
+    all: unset;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    display: flex;
+    place-content: center;
+    font-size: var(--cart-small);
+    color: var(--color-icon);
+    @media (min-width: 450px) {
+        font-size: var(--cart-big);
+    }
+}
+
+.count {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--color-grey);
+    position: absolute;
+    color: var(--color-zilla);
+    background-color: white;
+    top: 19%;
+    font-size: var(--font-medium);
+}
+
+.cartOnHover {
+    font-size: var(--font-medium);
+    position: absolute;
+    border: 2px solid var(--color-grey);
+    top: 100px;
+}
+
+.search {
+    position: relative;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    width: 100%;
+    @media (min-width: 450px) {
+        width: 40%;
+        margin-left: auto;
+    }
+}
+
+.search_icon {
+    font-size: var(--search-small);
+    padding: 2px;
+    color: grey;
+    @media (min-width: 768px) {
+        font-size: var(--search-big);
+    }
+}
+
+input {
+    width: 100%;
+    border: none;
+    writing-mode: horizontal-tb !important;
+    @media (min-width: 450px) {
+        font-size: var(--font-medium);
+    }
+}
+
+input:focus {
+    outline: none !important;
+}

@@ -1,16 +1,34 @@
 import { Link } from "react-router-dom";
 import { HeaderComponent } from "./Style.Header";
-import { Nav } from "./Style.Nav";
-import { Logo } from "./Style.Logo";
+import { FaBars } from "react-icons/fa";
+import { BsMinecart } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import logo from "../../assets/SHOP.png";
-function Header() {
+function Header(props) {
     return (
         <HeaderComponent>
-            <Nav>
+            <nav>
                 <Link to="/">
-                    <Logo src={logo} alt="Navigate to start"></Logo>
+                    <img className="logo" src={logo} alt="Navigate to start"></img>
                 </Link>
-            </Nav>
+                <div className="icon-div">
+                    <Link className="nav-icons" to="cart">
+                        <BsMinecart />
+                        <div className="count">5</div>
+
+                        {/* <div className="cartOnHover">this items is currently in your cart</div> */}
+                    </Link>
+                    <button className="nav-icons">
+                        <FaBars>
+                            <span className="sr-only">menu</span>
+                        </FaBars>
+                    </button>
+                </div>
+            </nav>
+            <div className="search">
+                <BsSearch className="search-icon"></BsSearch>
+                <input type="textbox" placeholder="search" name="search"></input>
+            </div>
         </HeaderComponent>
     );
 }

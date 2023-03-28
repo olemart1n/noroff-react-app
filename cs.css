@@ -1,0 +1,6 @@
+img {
+    object-position: center;
+    -o-object-fit: scale-down;
+    color: #b5b4b4;
+    text-decoration: line-through;
+}
