@@ -37,7 +37,7 @@ export const StyledCard = styled.div`
         font-size: ${(props) => props.theme.fontSize.small};
     }
 
-    @media (min-width: ${(props) => props.theme.break.mobile}) {
+    @media (min-width: 450px) {
         .link {
             border: 1px solid grey;
             padding: 7px 0;

@@ -21,8 +21,6 @@ const GlobalStyle = createGlobalStyle`
     --search-big: 2.3rem;
     --logo-big: 3.5rem;
     --logo-small: 1.2rem;
-    --break-mobile: 450px;
-    --break-tablet: 650px;
 }
 #root {
     max-width: 1400px;

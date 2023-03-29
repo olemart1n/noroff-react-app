@@ -24,7 +24,7 @@ export const HeaderComponent = styled.header`
 
     .logo {
         width: 100px;
-        @media (min-width: ${(props) => props.theme.break.mobile}) {
+        @media (min-width: 450px) {
             width: 180px;
         }
     }
@@ -43,7 +43,7 @@ export const HeaderComponent = styled.header`
         place-content: center;
         font-size: ${(props) => props.theme.icon.small};
         color: ${(props) => props.theme.color.icon};
-        @media (min-width: ${(props) => props.theme.break.mobile}) {
+        @media (min-width: 450px) {
             font-size: ${(props) => props.theme.icon.big};
         }
     }

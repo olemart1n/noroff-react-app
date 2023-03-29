@@ -1,3 +1,5 @@
+import { ThemeProvider } from "styled-components";
+
 const theme = {
     color: {
         primary: "var(--color-primary)",
@@ -29,10 +31,7 @@ const theme = {
         big: "var(--logo-big)",
         small: "var(---logo-small)",
     },
-    break: {
-        mobile: "var(--break-mobile)",
-        tablet: "var(--break-tablet)",
-    },
 };
 
-export default theme;
+export const Theme = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+export default Theme;

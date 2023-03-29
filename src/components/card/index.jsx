@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { StyledCard } from "./Style.Card";
+
 import OldPrice from "../oldPrice";
 
 function Card(props) {

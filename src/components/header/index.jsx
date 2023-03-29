@@ -15,8 +15,6 @@ function Header(props) {
                     <Link className="nav-icons" to="cart">
                         <BsMinecart />
                         <div className="count">5</div>
-
-                        {/* <div className="cartOnHover">this items is currently in your cart</div> */}
                     </Link>
                     <button className="nav-icons">
                         <FaBars>
