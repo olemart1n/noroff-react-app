@@ -49,15 +49,19 @@ export const HeaderComponent = styled.header`
     }
 
     .count {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        border: 2px solid ${(props) => props.theme.color.grey};
+        height: 15px;
+        width: 15px;
         position: absolute;
         color: ${(props) => props.theme.color.zilla};
-        background-color: white;
-        top: 19%;
-        font-size: ${(props) => props.theme.fontSize.medium};
+        background-color: transparent;
+        font-size: ${(props) => props.theme.fontSize.small};
+        top: 15%;
+        @media (min-width: 450px) {
+            height: 20px;
+            width: 20px;
+            top: 25%;
+            font-size: ${(props) => props.theme.fontSize.medium};
+        }
     }
 
     .cartOnHover {

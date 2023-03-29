@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import useCart from "../../features/cartContext";
 import { HeaderComponent } from "./Style.Header";
 import { FaBars } from "react-icons/fa";
 import { BsMinecart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import logo from "../../assets/SHOP.png";
 function Header(props) {
+    const { cart } = useCart();
+    let count;
+    count = cart.length;
+
     return (
         <HeaderComponent>
             <nav>
@@ -14,7 +19,7 @@ function Header(props) {
                 <div className="icon-div">
                     <Link className="nav-icons" to="cart">
                         <BsMinecart />
-                        <div className="count">5</div>
+                        <div className="count">{count}</div>
                     </Link>
                     <button className="nav-icons">
                         <FaBars>

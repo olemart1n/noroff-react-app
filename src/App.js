@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, Product, Cart, Checkout } from "./pages/index";
 import { CartProvider } from "./features/cartContext";
+
 import Layout from "./components/layout";
 
 function App() {

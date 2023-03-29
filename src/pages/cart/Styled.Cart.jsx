@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const CartComponent = styled.main`
+export const StyledCart = styled.main`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;

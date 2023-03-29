@@ -1,7 +1,7 @@
 import * as storage from "./storage/index";
 export const initialState = {
     total: 0,
-    products: [],
+    cart: [],
 };
 
 const cartReducer = (state, action) => {
@@ -9,19 +9,20 @@ const cartReducer = (state, action) => {
 
     switch (type) {
         case "ADD_TO_CART":
-            console.log("ADD_TO_CART", payload.products);
+            console.log("ADD_TO_CART", payload.cart);
             return {
                 ...state,
-                products: payload.products,
+                cart: payload.cart,
             };
         case "REMOVE_FROM_CART":
             console.log("REMOVE_FROM_CART", payload);
             return {
                 ...state,
-                products: payload.products,
+                cart: payload.cart,
             };
         case "UPDATE_STATE":
-            console.log("UPDATE_PRICE", payload);
+            console.log("price updated");
+            storage.save("cart", { total: payload.total, ...state });
             return {
                 ...state,
                 total: payload.total,

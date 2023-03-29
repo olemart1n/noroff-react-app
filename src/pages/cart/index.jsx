@@ -1,5 +1,7 @@
+import { StyledCart } from "./Styled.Cart";
+
 function Cart() {
-    return <div>cart</div>;
+    return <StyledCart>cart</StyledCart>;
 }
 
 export default Cart;
