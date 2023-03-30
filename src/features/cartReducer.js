@@ -1,7 +1,14 @@
-// import * as storage from "./storage/index";
+import * as storage from "./storage";
+let localTotal;
+let localCart;
+if (storage.load("initalState")) {
+    localTotal = storage.load("initalState").total;
+    localCart = storage.load("initalState").cart;
+}
+console.log(localCart);
 export const initialState = {
-    total: 0,
-    cart: [],
+    total: localTotal ? localTotal : 0,
+    cart: localCart ? localCart : [],
 };
 
 const cartReducer = (state, action) => {
