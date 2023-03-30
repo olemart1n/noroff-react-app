@@ -18,7 +18,6 @@ export const CartProvider = ({ children }) => {
         });
     };
     const removeFromCart = (product) => {
-        setCount(count - 1);
         dispatch({
             type: "REMOVE_FROM_CART",
             payload: {

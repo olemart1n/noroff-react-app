@@ -5,7 +5,6 @@ if (storage.load("initalState")) {
     localTotal = storage.load("initalState").total;
     localCart = storage.load("initalState").cart;
 }
-console.log(localCart);
 export const initialState = {
     total: localTotal ? localTotal : 0,
     cart: localCart ? localCart : [],

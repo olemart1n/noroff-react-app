@@ -52,7 +52,7 @@ export const HeaderComponent = styled.header`
         height: 15px;
         width: 15px;
         position: absolute;
-        color: ${(props) => props.theme.color.zilla};
+        color: ${(props) => props.theme.color.icon};
         background-color: transparent;
         font-size: ${(props) => props.theme.fontSize.small};
         top: 15%;

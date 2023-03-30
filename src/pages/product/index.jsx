@@ -6,7 +6,7 @@ import useApi from "../../features/fetch";
 import URL from "../../features/url";
 
 function Product() {
-    const { addToCart } = useCart();
+    const { addToCart, cart } = useCart();
 
     const { base, id } = URL();
     const { data, isLoading, isError } = useApi(base + id);
@@ -18,8 +18,12 @@ function Product() {
     }
 
     const { reviews } = data;
-    const handleClick = () => {
+    const handleClick = (e) => {
         addToCart(data);
+        e.currentTarget.innerHTML = "added";
+        setTimeout((e) => {
+            document.querySelector("#button-to-update").innerHTML = "Add To Cart";
+        }, 1000);
     };
     return (
         <StyledProduct>
@@ -36,7 +40,9 @@ function Product() {
                         <p>{data.discountedPrice} NOK</p>
                     </div>
                 </div>
-                <button onClick={handleClick}>Add To Cart</button>
+                <button id="button-to-update" onClick={handleClick}>
+                    Add To Cart
+                </button>
                 <ProductReviews reviews={reviews}></ProductReviews>
             </div>
         </StyledProduct>

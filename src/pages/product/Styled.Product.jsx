@@ -56,6 +56,26 @@ export const StyledProduct = styled.main`
         border-radius: 4px;
         text-align: center;
         font-size: ${(props) => props.theme.fontSize.small};
+        transition: all 0.25s ease-in-out;
+        &:hover {
+            background-color: ${(props) => props.theme.color.background};
+		border-color: ${(props) => props.theme.color.yellow};
+        }
+        &:active {
+		background-color: ${(props) => props.theme.color.background};
+		border-color: ${(props) => props.theme.color.background};
+		box-shadow: none;
+        &:focus {
+            background-color: ${(props) => props.theme.color.background};
+		border-color: ${(props) => props.theme.color.background};
+		color: ${(props) => props.theme.color.grey};
+		outline: 5px auto;
+	    }
+        &:visited {
+		background-color: ${(props) => props.theme.color.zilla};
+		border-color: ${(props) => props.theme.color.background};
+	}
+	}
     }
      @media (min-width: 650px) {
         h1 {
