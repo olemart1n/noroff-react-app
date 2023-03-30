@@ -1,9 +1,14 @@
 import styled from "styled-components";
 export const StyledCart = styled.main`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    h1 {
+        width: 100%
+
+    }
     gap: 1rem;
-     @media (min-width: ${(props) => props.theme.breakpoint.m}) {
+     @media (min-width: 450px}) {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     } 
     }

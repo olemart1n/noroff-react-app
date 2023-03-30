@@ -6,10 +6,7 @@ import { BsMinecart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import logo from "../../assets/SHOP.png";
 function Header(props) {
-    const { cart } = useCart();
-    let count;
-    count = cart.length;
-
+    const { count } = useCart();
     return (
         <HeaderComponent>
             <nav>
@@ -19,7 +16,7 @@ function Header(props) {
                 <div className="icon-div">
                     <Link className="nav-icons" to="cart">
                         <BsMinecart />
-                        <div className="count">{count}</div>
+                        <div className="count">{count > 0 ? count : ""}</div>
                     </Link>
                     <button className="nav-icons">
                         <FaBars>

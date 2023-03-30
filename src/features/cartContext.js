@@ -1,52 +1,43 @@
-import { createContext } from "react";
-import { useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useState } from "react";
 import cartReducer, { initialState } from "./cartReducer";
-import * as storage from "./storage/index";
+// import * as storage from "./storage/index";
 const cartContext = createContext(initialState);
 
 export const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(cartReducer, initialState);
-
+    const [count, setCount] = useState(0);
     const addToCart = (product) => {
-        const updatedCart = state.cart.concat(product);
-        updateState(updatedCart);
+        setCount(count + 1);
         dispatch({
             type: "ADD_TO_CART",
             payload: {
-                cart: updatedCart,
+                ...product,
             },
         });
     };
     const removeFromCart = (product) => {
-        const updatedCart = state.cart.filter(
-            (currentProduct) => currentProduct.title !== product.title
-        );
-        updateState(updatedCart);
+        setCount(count - 1);
         dispatch({
             type: "REMOVE_FROM_CART",
             payload: {
-                cart: updatedCart,
+                ...product,
             },
         });
     };
-
-    const updateState = (cart) => {
-        let total = 0;
-        cart.forEach((product) => (total += product.price));
-        storage.remove("cart");
-        storage.save("cart", { ...cart, total: total });
+    const clearCart = () => {
+        setCount(0);
         dispatch({
-            type: "UPDATE_STATE",
-            payload: {
-                total,
-            },
+            type: "CLEAR_CART",
         });
     };
+    // states that this context provides out through the app
     const value = {
+        count,
         total: state.total,
         cart: state.cart,
         addToCart,
         removeFromCart,
+        clearCart,
     };
     return <cartContext.Provider value={value}>{children}</cartContext.Provider>;
 };

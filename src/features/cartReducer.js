@@ -1,4 +1,4 @@
-import * as storage from "./storage/index";
+// import * as storage from "./storage/index";
 export const initialState = {
     total: 0,
     cart: [],
@@ -6,27 +6,53 @@ export const initialState = {
 
 const cartReducer = (state, action) => {
     const { type, payload } = action;
-
+    let productIndex;
+    let newTotal;
+    let cart;
     switch (type) {
         case "ADD_TO_CART":
-            console.log("ADD_TO_CART", payload.cart);
-            return {
-                ...state,
-                cart: payload.cart,
-            };
+            cart = [...state.cart];
+            productIndex = cart.findIndex((product) => product.id === payload.id);
+            if (productIndex === -1) {
+                cart.push({ ...payload, quantity: 1 });
+            } else {
+                cart = [
+                    ...cart.slice(0, productIndex),
+                    { ...cart[productIndex], quantity: cart[productIndex].quantity + 1 },
+                    ...cart.slice(productIndex + 1),
+                ];
+            }
+            newTotal = cart.reduce((currentTotal, product) => {
+                currentTotal += product.discountedPrice * product.quantity;
+                return currentTotal;
+            }, 0);
+            console.log(cart, newTotal);
+            return { ...state, cart: cart, total: newTotal };
+
         case "REMOVE_FROM_CART":
-            console.log("REMOVE_FROM_CART", payload);
-            return {
-                ...state,
-                cart: payload.cart,
-            };
-        case "UPDATE_STATE":
-            console.log("price updated");
-            storage.save("cart", { total: payload.total, ...state });
-            return {
-                ...state,
-                total: payload.total,
-            };
+            cart = [...state.cart];
+            productIndex = cart.findIndex((product) => product.id === payload.id);
+            if (productIndex !== -1) {
+                if (cart[productIndex].quantity > 1) {
+                    cart = [
+                        ...cart.slice(0, productIndex),
+                        {
+                            ...cart[productIndex],
+                            quantity: cart[productIndex].quantity - 1,
+                        },
+                        ...cart.slice(productIndex + 1),
+                    ];
+                } else {
+                    cart = [...cart.slice(0, productIndex), ...cart.slice(productIndex + 1)];
+                }
+            }
+            newTotal = cart.reduce((currentTotal, product) => {
+                currentTotal += product.discountedPrice * product.quantity;
+                return currentTotal;
+            }, 0);
+            return { ...state, cart: cart, total: newTotal };
+        case "CLEAR_CART":
+            return { cart: [], total: 0 };
 
         default:
             throw new Error("No case for " + type + " found in cartReducer");
