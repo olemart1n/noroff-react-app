@@ -1,22 +1,21 @@
-import { useState } from "react";
+import React from "react";
+import useCart from "../../features/cartContext";
+import { Link } from "react-router-dom";
+import { StyledCheckout } from "./Styled.Checkout";
+import { useEffect } from "react";
 
 function Checkout() {
-    const [firstName, setFirstName] = useState("");
-    const onFirstNameChange = (e) => {
-        setFirstName(e.target.value);
-    };
+    const { clearCart } = useCart();
+    useEffect(() => {
+        clearCart();
+    }, [clearCart]);
     return (
-        <div>
-            <from>
-                <label htmlFor="first-name">First name</label>
-                <input
-                    name="first-name"
-                    value={firstName}
-                    placeholder="Your first name"
-                    onChange={onFirstNameChange}
-                />
-            </from>
-        </div>
+        <StyledCheckout>
+            <h1>The order was successful</h1>
+            <Link className="link" to="/">
+                Go back to store
+            </Link>
+        </StyledCheckout>
     );
 }
 

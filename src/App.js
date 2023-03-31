@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, Product, Cart, Checkout } from "./pages/index";
+import { Home, Product, Cart, Checkout, Contact } from "./pages/index";
 import { CartProvider } from "./features/cartContext";
 
 import Layout from "./components/layout";
@@ -15,6 +15,7 @@ function App() {
                         <Route path="product/:id" element={<Product />} />
                         <Route path="cart" element={<Cart />} />
                         <Route path="checkout" element={<Checkout />} />
+                        <Route path="contact" element={<Contact />} />
                     </Route>
                 </Routes>
             </div>

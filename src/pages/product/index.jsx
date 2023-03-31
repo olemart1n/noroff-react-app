@@ -22,7 +22,9 @@ function Product() {
         addToCart(data);
         e.currentTarget.innerHTML = "added";
         setTimeout((e) => {
-            document.querySelector("#button-to-update").innerHTML = "Add To Cart";
+            if (document.querySelector("#button-to-update")) {
+                document.querySelector("#button-to-update").innerHTML = "Add To Cart";
+            }
         }, 1000);
     };
     return (
