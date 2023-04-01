@@ -6,7 +6,7 @@ import useApi from "../../features/fetch";
 import URL from "../../features/url";
 
 function Product() {
-    const { addToCart, cart } = useCart();
+    const { addToCart } = useCart();
 
     const { base, id } = URL();
     const { data, isLoading, isError } = useApi(base + id);

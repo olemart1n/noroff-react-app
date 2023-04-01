@@ -7,7 +7,6 @@ import { BsSearch } from "react-icons/bs";
 import { useSearch } from "../../features/searchContext";
 import { useState } from "react";
 import logo from "../../assets/SHOP.png";
-import { useEffect } from "react";
 
 function Header(props) {
     const [isActive, setIsActive] = useState(false);

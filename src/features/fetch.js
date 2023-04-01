@@ -26,7 +26,7 @@ function useApi(url) {
         }
 
         getData();
-    }, [url]);
+    }, [url, setProducts]);
 
     return { data, isLoading, isError };
 }
