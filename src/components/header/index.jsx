@@ -4,17 +4,22 @@ import { HeaderComponent } from "./Style.Header";
 import { FaBars } from "react-icons/fa";
 import { BsMinecart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
-import logo from "../../assets/SHOP.png";
-import useApi from "../../features/fetch";
-import URL from "../../features/url";
+import { useSearch } from "../../features/searchContext";
 import { useState } from "react";
+import logo from "../../assets/SHOP.png";
+import { useEffect } from "react";
+
 function Header(props) {
-    const [allProducts, setAllProducts] = useState();
-    const { base } = URL();
-    const { data } = useApi(base);
-    console.log(data);
+    const [isActive, setIsActive] = useState(false);
+    const { searchProducts, filteredProducts, setFilteredProducts } = useSearch();
     const { count } = useCart();
-    const handleClick = () => {};
+
+    const handleSearch = (e) => {
+        searchProducts(e.target.value);
+        setIsActive(true);
+        console.log(filteredProducts);
+    };
+
     return (
         <HeaderComponent>
             <nav>
@@ -36,11 +41,29 @@ function Header(props) {
             <div className="search">
                 <BsSearch className="search-icon"></BsSearch>
                 <input
-                    onClick={handleClick}
                     type="textbox"
+                    onChange={(e) => handleSearch(e)}
                     placeholder="search"
                     name="search"
                 ></input>
+                {isActive ? (
+                    <div className="search-results">
+                        {filteredProducts.map((prod) => {
+                            return (
+                                <Link
+                                    className="search-link"
+                                    onClick={() => setFilteredProducts([])}
+                                    to={`product/${prod.id}`}
+                                    key={prod.id}
+                                >
+                                    {prod.title}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    ""
+                )}
             </div>
         </HeaderComponent>
     );

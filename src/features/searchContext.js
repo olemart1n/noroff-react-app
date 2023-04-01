@@ -1,42 +1,38 @@
-import { useContext, createContext, useReducer, useEffect } from "react";
-import { searchReducer, searchState } from "./searchReducer";
+import { useContext } from "react";
+import { createContext, useState, useEffect } from "react";
+import URL from "./url";
+import useApi from "./fetch";
+const searchContext = createContext();
 
-const searchContext = createContext(searchState);
+function SearchProvider({ children }) {
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [products, setProducts] = useState([]);
 
-export const SearchProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(searchReducer, searchState);
-    const addProducts = (data) => {
-        dispatch({
-            type: "ADD_TO_SEARCH",
-            payload: {
-                array: data,
-            },
-        });
-    };
-    const consoleLog = (data) => {
-        dispatch({
-            type: "CONSOLE_LOG",
-            payload: {
-                ...data,
-            },
-        });
+    const searchProducts = (value) => {
+        if (value.length > 0) {
+            const filteredProducts = products.filter((prod) => {
+                return prod.title.toLowerCase().includes(value.toLowerCase());
+            });
+            setFilteredProducts(filteredProducts);
+        } else {
+            setFilteredProducts([]);
+        }
     };
 
     const value = {
-        addProducts,
-        allProducts: state.allProducts,
-        state,
-        consoleLog,
+        products,
+        setProducts,
+        searchProducts,
+        filteredProducts,
+        setFilteredProducts,
     };
+
     return <searchContext.Provider value={value}>{children}</searchContext.Provider>;
-};
+}
 
 const useSearch = () => {
     const context = useContext(searchContext);
-    if (context === undefined) {
-        throw new Error("search context error");
-    }
     return context;
 };
 
-export default useSearch;
+export { useSearch, SearchProvider };

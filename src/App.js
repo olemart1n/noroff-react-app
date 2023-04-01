@@ -7,8 +7,8 @@ import Layout from "./components/layout";
 
 function App() {
     return (
-        <SearchProvider>
-            <CartProvider>
+        <CartProvider>
+            <SearchProvider>
                 <div>
                     <Routes>
                         <Route path="/" element={<Layout />}>
@@ -20,8 +20,8 @@ function App() {
                         </Route>
                     </Routes>
                 </div>
-            </CartProvider>
-        </SearchProvider>
+            </SearchProvider>
+        </CartProvider>
     );
 }
 

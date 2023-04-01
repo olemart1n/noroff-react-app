@@ -85,6 +85,25 @@ export const HeaderComponent = styled.header`
         }
     }
 
+    .search-results {
+        position: absolute;
+        background-color: ${(props) => props.theme.color.background};
+        top: 100%;
+        border: 1px solid ${(props) => props.theme.color.grey};
+        max-height: 500px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .search-link {
+            text-decoration: none;
+            color: ${(props) => props.theme.color.icon};
+            width: 100%;
+        }
+        .search-link:hover {
+            background-color: ${(props) => props.theme.color.zilla};
+        }
+    }
+
     .search-icon {
         font-size: ${(props) => props.theme.search_icon.small};
         padding: 2px;

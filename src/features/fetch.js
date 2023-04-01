@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { useSearch } from "./searchContext";
 function useApi(url) {
+    const { setProducts } = useSearch();
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -12,6 +14,7 @@ function useApi(url) {
                 const fetchedData = await fetch(url);
                 const json = await fetchedData.json();
                 setData(json);
+                setProducts(json);
             } catch (error) {
                 console.log(error);
                 setIsError(true);
