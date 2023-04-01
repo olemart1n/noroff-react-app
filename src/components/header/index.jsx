@@ -5,8 +5,16 @@ import { FaBars } from "react-icons/fa";
 import { BsMinecart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import logo from "../../assets/SHOP.png";
+import useApi from "../../features/fetch";
+import URL from "../../features/url";
+import { useState } from "react";
 function Header(props) {
+    const [allProducts, setAllProducts] = useState();
+    const { base } = URL();
+    const { data } = useApi(base);
+    console.log(data);
     const { count } = useCart();
+    const handleClick = () => {};
     return (
         <HeaderComponent>
             <nav>
@@ -27,7 +35,12 @@ function Header(props) {
             </nav>
             <div className="search">
                 <BsSearch className="search-icon"></BsSearch>
-                <input type="textbox" placeholder="search" name="search"></input>
+                <input
+                    onClick={handleClick}
+                    type="textbox"
+                    placeholder="search"
+                    name="search"
+                ></input>
             </div>
         </HeaderComponent>
     );

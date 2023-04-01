@@ -3,9 +3,12 @@ import Card from "../../components/card";
 import URL from "../../features/url";
 import useApi from "../../features/fetch";
 import { Spinner } from "../../components/spinner";
+
 function Home() {
     const { base } = URL();
+
     const { data, isLoading, isError } = useApi(base);
+
     if (isLoading) {
         return <Spinner />;
     }

@@ -6,6 +6,7 @@ export const StyledCard = styled.div`
     justify-content: space-between;
     border: 1px solid ${(props) => props.theme.color.grey};
     padding: 1rem;
+    max-height: 441.19px;
     h2 {
         font-size: ${(props) => props.theme.fontSize.small};
     }
@@ -24,6 +25,7 @@ export const StyledCard = styled.div`
         height: 100%;
         object-fit: cover;
         object-fit: scale-down;
+        max-height: 331px;
     }
 
     span {
