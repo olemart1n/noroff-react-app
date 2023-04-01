@@ -14,7 +14,9 @@ function useApi(url) {
                 const fetchedData = await fetch(url);
                 const json = await fetchedData.json();
                 setData(json);
-                setProducts(json);
+                if (json.length > 1) {
+                    setProducts(json);
+                }
             } catch (error) {
                 console.log(error);
                 setIsError(true);

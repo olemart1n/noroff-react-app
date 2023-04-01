@@ -1,7 +1,5 @@
 import { useContext } from "react";
-import { createContext, useState, useEffect } from "react";
-import URL from "./url";
-import useApi from "./fetch";
+import { createContext, useState } from "react";
 const searchContext = createContext();
 
 function SearchProvider({ children }) {
