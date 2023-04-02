@@ -11,6 +11,7 @@ export const StyledProduct = styled.main`
     .card {
         display: flex;
         flex-direction: column;
+        position: relative;
         padding: 2rem;
         width: 100%; 
         margin:auto;
@@ -20,6 +21,12 @@ export const StyledProduct = styled.main`
             width: 100%;
             margin: auto;
             box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+        }
+        .discount {
+            position: absolute;
+            color: red;
+            top: 10px;
+    }
         }
         h2 {
             color: ${(props) => props.theme.color.icon};
@@ -77,6 +84,7 @@ export const StyledProduct = styled.main`
 	}
 	}
     }
+    
      @media (min-width: 650px) {
         h1 {
             margin-bottom: 1rem;

@@ -25,7 +25,6 @@ function Header(props) {
     const handleSearch = (e) => {
         searchProducts(e.target.value);
         setIsActive(true);
-        console.log(filteredProducts);
     };
 
     return (

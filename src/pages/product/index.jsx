@@ -2,6 +2,7 @@ import useCart from "../../features/cartContext";
 import { Spinner } from "../../components/spinner";
 import StyledProduct from "./Styled.Product";
 import { ProductReviews } from "../../components/reviews";
+import Discount from "../../components/discount";
 import useApi from "../../features/fetch";
 import URL from "../../features/url";
 
@@ -32,6 +33,7 @@ function Product() {
             <h1>{data.title}</h1>
             <div className="card">
                 <img src={data.imageUrl} alt={data.description}></img>
+                <Discount price={data.price} discountedPrice={data.discountedPrice} />
                 <div>
                     <div className="description">
                         <h2>DESCRIPTION</h2>
