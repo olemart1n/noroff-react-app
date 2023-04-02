@@ -28,7 +28,7 @@ function Contact() {
         <StyledContact>
             <h1>Contact</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="fullName">First name</label>
+                <label htmlFor="fullName">Full name</label>
                 <input {...register("fullName")} />
                 <p>{errors.fullName?.message}</p>
                 <label htmlFor="subject">Subject</label>
