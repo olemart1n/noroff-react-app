@@ -29,6 +29,18 @@ export const HeaderComponent = styled.header`
         }
     }
 
+    .bar:not(:focus):not(:active) {
+        @media (min-width: 450px) {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+    }
+
     .icon-div {
         display: flex;
         padding: 4px 4px;
@@ -53,22 +65,57 @@ export const HeaderComponent = styled.header`
         width: 15px;
         position: absolute;
         color: ${(props) => props.theme.color.icon};
-        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
         font-size: ${(props) => props.theme.fontSize.small};
         top: 15%;
         @media (min-width: 450px) {
             height: 20px;
             width: 20px;
-            top: 25%;
+            top: 21%;
             font-size: ${(props) => props.theme.fontSize.medium};
         }
     }
 
-    .cartOnHover {
-        font-size: ${(props) => props.theme.fontSize.medium};
-        position: absolute;
-        border: 2px solid ${(props) => props.theme.color.grey};
-        top: 100px;
+    .nav-icons:hover {
+        box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    }
+
+    .navigation-row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        algin-items: center;
+        @media (min-width: 450px) {
+            flex-wrap: unset;
+        }
+    }
+    .mobile-nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .mobile-nav-link {
+            text-decoration: none;
+            padding: 5px;
+            color: grey;
+        }
+    }
+    .nav-links {
+        display: none;
+        @media (min-width: 450px) {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            justify-content: space-around;
+            border: none;
+            width: 100%;
+            .nav-link {
+                text-decoration: none;
+                color: grey;
+            }
+        }
     }
 
     .search {

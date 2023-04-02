@@ -32,7 +32,7 @@ const cartReducer = (state, action) => {
                 currentTotal += product.discountedPrice * product.quantity;
                 return currentTotal;
             }, 0);
-            console.log(cart, newTotal);
+
             return { ...state, cart: cart, total: newTotal };
 
         case "REMOVE_FROM_CART":
